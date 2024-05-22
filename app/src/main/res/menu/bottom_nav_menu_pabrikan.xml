@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/nav_view_selected_home"
+        android:title="Home"
+        app:cnb_iconColor="#0D5F78" />
+
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/nav_view_selected_profile"
+        android:title="Profile"
+        app:cnb_iconColor="#1294BC" />
+
+</menu>

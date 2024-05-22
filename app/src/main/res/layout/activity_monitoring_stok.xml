@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.monitoring_stok.MonitoringStokActivity">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="@drawable/dashboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="29dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@id/textView3"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/header"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:fontFamily="@font/montserrat_reguler"
+        android:text="Monitoring Stok"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/lbl_up3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="UP3"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edt_up3"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/srchview"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat_reguler"
+                android:hint=""
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_up3"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_up3" />
+
+            <TextView
+                android:id="@+id/txt_gudang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Gudang"
+                android:textColor="#3F3D56"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_up3"
+                app:layout_constraintTop_toBottomOf="@id/edt_up3" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tinp_pilihKategori"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="25dp"
+                app:hintAnimationEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txt_gudang"
+                app:layout_constraintTop_toBottomOf="@id/txt_gudang">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_gudang"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/txt_input_layout"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="none"
+                    android:text="Pilih Gudang" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txt_valuation_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Valuation Type"
+                android:textColor="#3F3D56"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tinp_pilihKategori"
+                app:layout_constraintTop_toBottomOf="@id/tinp_pilihKategori" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tinp_pilihvaluationtype"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="25dp"
+                app:hintAnimationEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txt_valuation_type"
+                app:layout_constraintTop_toBottomOf="@id/txt_valuation_type">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_valuationtype"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/txt_input_layout"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="none"
+                    android:text="Valuation Type" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txt_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Material"
+                android:textColor="#3F3D56"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/tinp_pilihvaluationtype"
+                app:layout_constraintTop_toBottomOf="@id/tinp_pilihvaluationtype" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tinp_pilihmaterial"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="25dp"
+                app:hintAnimationEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txt_material"
+                app:layout_constraintTop_toBottomOf="@id/txt_material">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_material"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/txt_input_layout"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="none"
+                    android:text="Pilih Material" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_monitoring_stok"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@+id/tinp_pilihmaterial"
+                app:layout_constraintStart_toStartOf="@id/tinp_pilihmaterial"
+                app:layout_constraintTop_toBottomOf="@id/tinp_pilihmaterial"
+                tools:listitem="@layout/item_data_monitoring_stok" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/rv_monitoring_stok"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rv_monitoring_stok"
+                tools:visibility="visible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

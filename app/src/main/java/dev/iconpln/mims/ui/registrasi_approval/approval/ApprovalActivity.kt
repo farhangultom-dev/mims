@@ -1,0 +1,71 @@
+package dev.iconpln.mims.ui.registrasi_approval.approval
+
+import android.os.Bundle
+import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import dev.iconpln.mims.BaseActivity
+import dev.iconpln.mims.data.remote.service.ApiConfig
+import dev.iconpln.mims.databinding.ActivityApprovalBinding
+import dev.iconpln.mims.utils.ViewModelFactory
+
+class ApprovalActivity : BaseActivity() {
+    private lateinit var binding: ActivityApprovalBinding
+    private lateinit var viewModel: ApprovalMaterialViewModel
+    private lateinit var rvAdapter: ListApprovalMaterialAdapter
+    private var filter = "ALL"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityApprovalBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val apiService = ApiConfig.getApiService(this)
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelFactory(apiService)
+        )[ApprovalMaterialViewModel::class.java]
+
+        viewModel.getMaterialAktivasi(filter)
+        viewModel.getMaterialAktivasiResponse.observe(this) {
+            if (it != null) {
+                rvAdapter.setListMaterialAktivasi(it.data)
+            }
+        }
+
+        viewModel.isLoading.observe(this) {
+            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        }
+
+        viewModel.errorMessage.observe(this) {
+            if (it != null) {
+                Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        val statusItem = listOf("ALL", "BELUM SELESAI", "SELESAI")
+        val adapterDropdown =
+            ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, statusItem)
+        binding.dropdownStatus.setAdapter(adapterDropdown)
+        binding.dropdownStatus.setOnItemClickListener { parent, _, position, _ ->
+            val selectedItem = parent.getItemAtPosition(position) as String
+            filter = selectedItem
+            viewModel.getMaterialAktivasi(filter)
+        }
+
+        setRecyclerView()
+
+        binding.btnBack.setOnClickListener { onBackPressed() }
+    }
+
+    private fun setRecyclerView() {
+        rvAdapter = ListApprovalMaterialAdapter()
+        binding.rvApprovalMaterial.apply {
+            layoutManager = LinearLayoutManager(this@ApprovalActivity)
+            setHasFixedSize(true)
+            adapter = rvAdapter
+        }
+    }
+}

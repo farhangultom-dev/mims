@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_daftarList"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp"
+    tools:ignore="MissingConstraints">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F7F8FA">
+
+        <View
+            android:id="@+id/vw_line"
+            android:layout_width="5dp"
+            android:layout_height="0dp"
+            android:background="#F8951D"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lbl_serial_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Serial Number"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@id/icon_tgl"
+            app:layout_constraintStart_toStartOf="@id/vw_line"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_serial_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:paddingBottom="4dp"
+            android:text="PLN123123123123"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/lbl_serial_number"
+            app:layout_constraintStart_toStartOf="@id/lbl_serial_number"
+            app:layout_constraintTop_toBottomOf="@id/lbl_serial_number" />
+
+        <ImageView
+            android:id="@+id/icon_tgl"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_number"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_serial_number"
+            app:layout_constraintEnd_toStartOf="@id/lbl_tgl_registrasi"
+            app:layout_constraintTop_toTopOf="@id/lbl_serial_number" />
+
+        <TextView
+            android:id="@+id/lbl_tgl_registrasi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Tanggal Registrasi"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/icon_tgl"
+            app:layout_constraintEnd_toStartOf="@id/cb_sesuai"
+            app:layout_constraintTop_toTopOf="@+id/icon_tgl" />
+
+        <TextView
+            android:id="@+id/txt_tgl_registrasi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:paddingBottom="4dp"
+            android:text="dd/mm/yyy"
+            android:textSize="10sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/lbl_tgl_registrasi"
+            app:layout_constraintStart_toStartOf="@id/lbl_tgl_registrasi"
+            app:layout_constraintTop_toBottomOf="@id/lbl_tgl_registrasi" />
+
+        <CheckBox
+            android:id="@+id/cb_sesuai"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="#23272F"
+            android:textSize="8dp"
+            android:theme="@style/CheckBox"
+            app:layout_constraintBottom_toBottomOf="@id/lbl_tgl_registrasi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

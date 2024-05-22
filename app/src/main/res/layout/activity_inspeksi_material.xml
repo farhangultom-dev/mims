@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.inspeksi_material.InspeksiMaterialActivity">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="@drawable/dashboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="29dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@id/textView3"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/header"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:fontFamily="@font/montserrat_reguler"
+        android:text="Inspeksi Material Retur Ex-Bongkar"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_inspeksi_material"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/lbl_no_inspeksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="No. Inspeksi"
+                android:textColor="#3F3D56"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edt_no_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/srchview"
+                android:maxLines="1"
+                android:fontFamily="@font/montserrat_reguler"
+                android:hint="Masukan No. Inspeksi"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_no_inspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_no_inspeksi" />
+
+            <TextView
+                android:id="@+id/lbl_nama_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="No. / Nama Material"
+                android:textColor="#3F3D56"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_no_inspeksi"
+                app:layout_constraintTop_toBottomOf="@id/edt_no_inspeksi" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tinp_pilih_nama_material"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="25dp"
+                app:hintAnimationEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@id/lbl_nama_material">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_nama_material"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/txt_input_layout"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="none"
+                    android:text="Pilih Nama Material" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lbl_tgl_inspeksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Tgl. Inspeksi"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@id/tinp_pilih_nama_material" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_tanggal_inspeksi"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                app:cardCornerRadius="10dp"
+                app:strokeColor="#AB045A71"
+                app:strokeWidth="1dp"
+                app:layout_constraintEnd_toEndOf="@id/tinp_pilih_nama_material"
+                app:layout_constraintStart_toStartOf="@id/tinp_pilih_nama_material"
+                app:layout_constraintTop_toBottomOf="@id/lbl_tgl_inspeksi">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="start|center"
+                    android:layout_marginStart="10dp">
+
+                    <TextView
+                        android:id="@+id/txt_tgl_mulai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_reguler"
+                        android:text="dd/mm/yyyy"
+                        android:layout_weight="1"
+                        android:textColor="#028097" />
+
+                    <ImageView
+                        android:layout_gravity="end|center"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/ic_calendar_new" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/lbl_status_inspeksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status Inspeksi"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@id/lbl_tgl_inspeksi"
+                app:layout_constraintTop_toBottomOf="@id/cv_tanggal_inspeksi" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tinp_pilih_status_inspeksi"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="25dp"
+                app:hintAnimationEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@id/lbl_status_inspeksi">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_status_inspeksi"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/txt_input_layout"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="none"
+                    android:text="Pilih Status Inspeksi" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_inspeksi_material"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/tinp_pilih_status_inspeksi"
+                app:layout_constraintStart_toStartOf="@id/tinp_pilih_status_inspeksi"
+                app:layout_constraintTop_toBottomOf="@id/tinp_pilih_status_inspeksi"
+                tools:listitem="@layout/item_inspeksi_material" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_kirim"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/br_btn"
+        android:elevation="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/montserrat_reguler"
+        android:text="Buat Inspeksi Material"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_scan"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_scan"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/btn_scan_inspeksi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_kirim"
+        app:layout_constraintBottom_toBottomOf="@id/btn_kirim"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

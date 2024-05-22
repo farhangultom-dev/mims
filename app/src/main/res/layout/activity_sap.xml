@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    tools:context=".SapActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_back"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/car_ui_icon_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lbl_detail_sap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="74dp"
+        android:fontFamily="@font/montserrat_bold"
+
+        android:text="Detail SAP"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/btn_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_back"
+        app:layout_constraintTop_toTopOf="@id/btn_back" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_no_reservasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="#F7F8FA"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_detail_sap">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="10dp"
+                android:layout_height="0dp"
+                android:background="#26ACE2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lbl_nomor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Nomor"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_nomor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="1"
+                android:textColor="#3F3D56"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_nomor"
+                app:layout_constraintStart_toStartOf="@+id/lbl_nomor"
+                app:layout_constraintTop_toBottomOf="@id/lbl_nomor" />
+
+            <TextView
+                android:id="@+id/lbl_material_doc_sap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Material Doc.SAP"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/txt_nomor"
+                app:layout_constraintStart_toEndOf="@id/view"
+                app:layout_constraintTop_toBottomOf="@id/txt_nomor" />
+
+            <TextView
+                android:id="@+id/txt_material_doc_sap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="4926568599"
+                android:textColor="#3F3D56"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_material_doc_sap"
+                app:layout_constraintStart_toStartOf="@+id/lbl_material_doc_sap"
+                app:layout_constraintTop_toBottomOf="@id/lbl_material_doc_sap" />
+
+            <TextView
+                android:id="@+id/lbl_message_sap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Message"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/txt_material_doc_sap"
+                app:layout_constraintStart_toEndOf="@id/view"
+                app:layout_constraintTop_toBottomOf="@id/txt_material_doc_sap" />
+
+            <TextView
+                android:id="@+id/txt_message_sap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Successfully created material document in SAP"
+                android:textColor="#3F3D56"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_message_sap"
+                app:layout_constraintStart_toStartOf="@+id/lbl_message_sap"
+                app:layout_constraintTop_toBottomOf="@id/lbl_message_sap" />
+
+            <TextView
+                android:id="@+id/lbl_create_on_sap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Create On"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/txt_message_sap"
+                app:layout_constraintStart_toEndOf="@id/view"
+                app:layout_constraintTop_toBottomOf="@id/txt_message_sap" />
+
+            <TextView
+                android:id="@+id/txt_create_on_sap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="12-12-2023 17:49:19"
+                android:textColor="#3F3D56"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_create_on_sap"
+                app:layout_constraintStart_toStartOf="@+id/lbl_create_on_sap"
+                app:layout_constraintTop_toBottomOf="@id/lbl_create_on_sap" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

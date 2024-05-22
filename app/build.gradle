@@ -1,0 +1,172 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+
+android {
+    namespace 'dev.iconpln.mims'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "dev.iconpln.mims"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        production {
+            storeFile file("${project.rootDir}/app/mimskey.jks")
+            storePassword 'm1m52023'
+            keyAlias = 'mimskey'
+            keyPassword 'm1m52023'
+        }
+    }
+
+    defaultConfig {
+
+//        local
+        buildConfigField("String", "BASE_URL", "\"https://4c6b-180-244-163-115.ngrok-free.app\"")
+
+//        staging
+//        buildConfigField("String", "BASE_URL", "\"http://10.14.66.116:3000\"")
+//        buildConfigField("String", "BASE_URL", "\"http://10.14.152.193:30880\"")
+
+//        production
+//        buildConfigField("String", "BASE_URL", "\"https://mims.pln.co.id\"")
+        buildConfigField("String", "DOMAIN_URL", "\"mims.pln.co.id\"")
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.production
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation 'com.android.car.ui:car-ui-lib:2.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:27.1.1'
+
+    // livedata
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+
+    //room
+    implementation "androidx.room:room-runtime:2.5.0"
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.2'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.0'
+    implementation 'androidx.activity:activity:1.6.1'
+    kapt "androidx.room:room-compiler:2.5.0"
+    implementation "androidx.room:room-ktx:2.5.0"
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+
+    // datastore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+
+    // scanner
+    // implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
+    // ZXing
+    implementation('com.journeyapps:zxing-android-embedded:4.3.0') { transitive = false }
+    implementation 'com.google.zxing:core:3.3.0'
+    // Barcode Scanning API ML Kit
+    implementation 'com.google.mlkit:barcode-scanning:17.0.3'
+    // CameraX Library
+    implementation 'com.google.mlkit:barcode-scanning:17.0.3'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+
+    //lottie
+    implementation 'com.airbnb.android:lottie:3.4.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //greendao
+    implementation 'org.greenrobot:greendao:3.3.0'
+
+    //localtime
+    implementation 'joda-time:joda-time:2.10'
+
+    //biometric
+    implementation "androidx.biometric:biometric:1.0.0"
+
+    //multidex
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    //circleimageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //size
+    implementation 'com.intuit.sdp:sdp-android:1.0.5'
+    implementation 'com.intuit.ssp:ssp-android:1.0.5'
+
+    // CameraX core library using camera2 implementation
+    implementation "androidx.camera:camera-camera2:1.0.1"
+
+    // CameraX Lifecycle Library
+    implementation "androidx.camera:camera-lifecycle:1.0.1"
+
+    // CameraX View class
+    implementation "androidx.camera:camera-view:1.0.0-alpha27"
+
+    //image compressor
+    implementation 'id.zelory:compressor:2.1.1'
+
+    // slider view
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'
+
+    // loading image from url
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    // anti-root
+    implementation 'com.scottyab:rootbeer-lib:0.1.0'
+
+    // encrypted library
+    implementation "androidx.security:security-crypto:1.1.0-alpha02"
+    implementation 'com.scottyab:secure-preferences-lib:0.1.7'
+    implementation "net.zetetic:android-database-sqlcipher:4.4.2"
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // chip navigation
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
+}

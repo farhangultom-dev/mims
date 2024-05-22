@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="500dp">
+
+    <TextView
+        android:id="@+id/lbl_inspeksi_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detail Inspeksi Material"
+        android:textSize="16sp"
+        android:textColor="#3F3D56"
+        android:fontFamily="@font/montserrat_semibold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_close_dialog_inspeksi"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="14dp"
+        android:background="@drawable/btn_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/lbl_inspeksi_detail"
+        app:layout_constraintTop_toTopOf="@id/lbl_inspeksi_detail"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_daftarList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@id/lbl_inspeksi_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F7F8FA">
+
+            <View
+                android:id="@+id/vw_line"
+                android:layout_width="5dp"
+                android:layout_height="0dp"
+                android:background="#26ACE2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_is_rating"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ic_is_not_rating"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lbl_serial_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Serial Number"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="@+id/vw_line"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vw_circle"
+                android:layout_width="2dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/dashboard"
+                app:layout_constraintStart_toEndOf="@+id/lbl_serial_number"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_tgl_kirim"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text=""
+                android:textSize="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/vw_circle"
+                app:layout_constraintEnd_toStartOf="@+id/iv_is_rating"
+                app:layout_constraintStart_toEndOf="@+id/vw_circle"
+                app:layout_constraintTop_toTopOf="@+id/vw_circle"
+                app:layout_constraintVertical_bias="0.545" />
+
+            <ImageView
+                android:id="@+id/is_checked"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_checked"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_tgl_kirim" />
+
+            <TextView
+                android:id="@+id/txt_serial_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textColor="#3F3D56"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_serial_number" />
+
+            <ImageView
+                android:id="@+id/imageViewNoInspeksi"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_number"
+                app:layout_constraintStart_toStartOf="@+id/txt_serial_number"
+                app:layout_constraintTop_toBottomOf="@+id/txt_serial_number" />
+
+            <TextView
+                android:id="@+id/lbl_no_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="No. Inspeksi"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewNoInspeksi"
+                app:layout_constraintEnd_toStartOf="@+id/imageView1"
+                app:layout_constraintStart_toEndOf="@+id/imageViewNoInspeksi"
+                app:layout_constraintTop_toTopOf="@+id/imageViewNoInspeksi" />
+
+            <TextView
+                android:id="@+id/txt_no_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_no_inspeksi"
+                app:layout_constraintStart_toStartOf="@+id/lbl_no_inspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_no_inspeksi" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_number"
+                app:layout_constraintStart_toStartOf="@+id/imageViewNoInspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/txt_no_inspeksi" />
+
+            <TextView
+                android:id="@+id/lbl_nama_material"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Nama Material"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toStartOf="@+id/imageView1"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/txt_nama_material"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_nama_material"
+                app:layout_constraintStart_toStartOf="@+id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_nama_material" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/unit_list_monitoring1"
+                app:layout_constraintEnd_toStartOf="@+id/lbl_no_material"
+                app:layout_constraintStart_toEndOf="@+id/lbl_no_inspeksi"
+                app:layout_constraintTop_toTopOf="@+id/lbl_no_inspeksi" />
+
+            <TextView
+                android:id="@+id/lbl_no_material"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="No. Material"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView1"
+                app:layout_constraintTop_toTopOf="@+id/imageView1" />
+
+            <TextView
+                android:id="@+id/txt_no_material"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_no_material"
+                app:layout_constraintStart_toEndOf="@+id/imageView1"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_no_inspeksi" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/unit_list_monitoring1"
+                app:layout_constraintEnd_toStartOf="@+id/lbl_no_material"
+                app:layout_constraintStart_toEndOf="@+id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@+id/txt_no_material" />
+
+            <TextView
+                android:id="@+id/lbl_satuan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Satuan"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+            <TextView
+                android:id="@+id/txt_satuan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_satuan"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_satuan" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_number"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nama_material" />
+
+            <TextView
+                android:id="@+id/lbl_qty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Qty"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="@+id/txt_nama_material"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/txt_qty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_qty"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_qty" />
+
+            <ImageView
+                android:id="@+id/imageViewStatusInspeksi"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_number"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/txt_qty" />
+
+            <TextView
+                android:id="@+id/lbl_status_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Status Inspeksi"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewStatusInspeksi"
+                app:layout_constraintEnd_toEndOf="@+id/txt_nama_material"
+                app:layout_constraintStart_toEndOf="@+id/imageViewStatusInspeksi"
+                app:layout_constraintTop_toTopOf="@+id/imageViewStatusInspeksi" />
+
+            <TextView
+                android:id="@+id/txt_status_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_status_inspeksi"
+                app:layout_constraintStart_toEndOf="@+id/imageViewStatusInspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_status_inspeksi" />
+
+            <ImageView
+                android:id="@+id/imageViewStatusAnggaran"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/unit_list_monitoring1"
+                app:layout_constraintEnd_toStartOf="@+id/lbl_no_material"
+                app:layout_constraintStart_toEndOf="@+id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@+id/txt_satuan" />
+
+            <TextView
+                android:id="@+id/lbl_status_anggaran"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Status Anggaran"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewStatusAnggaran"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewStatusAnggaran"
+                app:layout_constraintTop_toTopOf="@+id/imageViewStatusAnggaran" />
+
+            <TextView
+                android:id="@+id/txt_status_anggaran"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_satuan"
+                app:layout_constraintStart_toEndOf="@+id/imageViewStatusAnggaran"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_status_anggaran" />
+
+            <ImageView
+                android:id="@+id/imageViewNoAsset"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_number"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/txt_status_inspeksi" />
+
+            <TextView
+                android:id="@+id/lbl_no_asset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="No Asset"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewNoAsset"
+                app:layout_constraintEnd_toEndOf="@+id/txt_nama_material"
+                app:layout_constraintStart_toEndOf="@+id/imageViewNoAsset"
+                app:layout_constraintTop_toTopOf="@+id/imageViewNoAsset" />
+
+            <TextView
+                android:id="@+id/txt_no_asset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_status_inspeksi"
+                app:layout_constraintStart_toEndOf="@+id/imageViewNoAsset"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_no_asset" />
+
+            <ImageView
+                android:id="@+id/imageViewNamaPabrikan"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/unit_list_monitoring1"
+                app:layout_constraintEnd_toStartOf="@+id/lbl_no_material"
+                app:layout_constraintStart_toEndOf="@+id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@+id/txt_status_anggaran" />
+
+            <TextView
+                android:id="@+id/lbl_nama_pabrikan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Nama Pabrikan"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewNamaPabrikan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewNamaPabrikan"
+                app:layout_constraintTop_toTopOf="@+id/imageViewNamaPabrikan" />
+
+            <TextView
+                android:id="@+id/txt_nama_pabrikan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_satuan"
+                app:layout_constraintStart_toEndOf="@+id/imageViewNamaPabrikan"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_nama_pabrikan" />
+
+            <ImageView
+                android:id="@+id/imageViewTahunBuat"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_number"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/txt_no_asset" />
+
+            <TextView
+                android:id="@+id/lbl_tahun_buat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Tahun Buat"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewTahunBuat"
+                app:layout_constraintEnd_toEndOf="@+id/txt_nama_material"
+                app:layout_constraintStart_toEndOf="@+id/imageViewTahunBuat"
+                app:layout_constraintTop_toTopOf="@+id/imageViewTahunBuat" />
+
+            <TextView
+                android:id="@+id/txt_tahun_buat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_status_inspeksi"
+                app:layout_constraintStart_toEndOf="@+id/imageViewTahunBuat"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_tahun_buat" />
+
+            <ImageView
+                android:id="@+id/imageViewIdPelanggan"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/unit_list_monitoring1"
+                app:layout_constraintEnd_toStartOf="@+id/lbl_no_material"
+                app:layout_constraintStart_toEndOf="@+id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@+id/txt_nama_pabrikan" />
+
+            <TextView
+                android:id="@+id/lbl_id_pelanggan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="ID Pelanggan"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewIdPelanggan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewIdPelanggan"
+                app:layout_constraintTop_toTopOf="@+id/imageViewIdPelanggan" />
+
+            <TextView
+                android:id="@+id/txt_id_pelanggan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_satuan"
+                app:layout_constraintStart_toEndOf="@+id/imageViewNamaPabrikan"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_id_pelanggan" />
+
+            <ImageView
+                android:id="@+id/imageViewKlasifikasi"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_number"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/txt_tahun_buat" />
+
+            <TextView
+                android:id="@+id/lbl_klasifikasi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Klasifikasi"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewKlasifikasi"
+                app:layout_constraintEnd_toEndOf="@+id/txt_nama_material"
+                app:layout_constraintStart_toEndOf="@+id/imageViewKlasifikasi"
+                app:layout_constraintTop_toTopOf="@+id/imageViewKlasifikasi" />
+
+            <TextView
+                android:id="@+id/txt_klasifikasi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_status_inspeksi"
+                app:layout_constraintStart_toEndOf="@+id/imageViewKlasifikasi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_klasifikasi" />
+
+            <ImageView
+                android:id="@+id/imageViewTimInspeksi"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/unit_list_monitoring1"
+                app:layout_constraintEnd_toStartOf="@+id/lbl_no_material"
+                app:layout_constraintStart_toEndOf="@+id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@+id/txt_id_pelanggan" />
+
+            <TextView
+                android:id="@+id/lbl_tim_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Tim Inspeksi"
+                android:textColor="#3F3D56"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewTimInspeksi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewTimInspeksi"
+                app:layout_constraintTop_toTopOf="@+id/imageViewTimInspeksi" />
+
+            <TextView
+                android:id="@+id/txt_tim_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="-"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@+id/lbl_satuan"
+                app:layout_constraintStart_toEndOf="@+id/imageViewNamaPabrikan"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_tim_inspeksi" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_simpan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/br_btn"
+        android:elevation="8dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_reguler"
+        android:text="Simpan"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintEnd_toStartOf="@id/btn_inspeksi"
+        app:layout_constraintTop_toBottomOf="@id/cv_daftarList"
+        app:layout_constraintStart_toStartOf="@id/cv_daftarList"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_inspeksi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/br_btn"
+        android:elevation="8dp"
+        android:fontFamily="@font/montserrat_reguler"
+        android:visibility="gone"
+        android:text="Inspeksi"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/cv_daftarList"
+        app:layout_constraintTop_toTopOf="@id/btn_simpan"
+        app:layout_constraintStart_toEndOf="@id/btn_simpan"
+        app:layout_constraintBottom_toBottomOf="@id/btn_simpan"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_selesai_inspeksi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/br_btn"
+        android:elevation="8dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/montserrat_reguler"
+        android:visibility="gone"
+        android:text="Selesai Inspeksi"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintTop_toBottomOf="@id/cv_daftarList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

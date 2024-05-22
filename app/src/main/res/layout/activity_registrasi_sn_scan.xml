@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrasiSnScanActivity">
+
+    <TextView
+        android:id="@+id/lbl_registrasi_sn_material"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Registrasi SN Material"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_close_detail_registrasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/btn_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_valuation_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Valuation Type"
+        android:textColor="#3F3D56"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/lbl_registrasi_sn_material"
+        app:layout_constraintTop_toBottomOf="@id/lbl_registrasi_sn_material" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tinp_valuation_type"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:hintAnimationEnabled="true"
+        app:layout_constraintStart_toStartOf="@id/txt_valuation_type"
+        app:layout_constraintTop_toBottomOf="@id/txt_valuation_type">
+
+        <AutoCompleteTextView
+            android:id="@+id/dropdown_kategori"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/txt_input_layout"
+            android:fontFamily="@font/montserrat_reguler"
+            android:inputType="none"
+            android:text="Pilih Valuation Type"
+            android:textColor="#028097"
+            android:textSize="12sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_scan_sn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/btn_scan_registrasi"
+        android:drawableLeft="@drawable/btn_scanregis"
+        android:text="SCAN SN"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tinp_valuation_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tinp_valuation_type"
+        app:layout_constraintTop_toTopOf="@id/tinp_valuation_type" />
+
+    <TextView
+        android:id="@+id/lbl_sn_material"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="SN Material"
+        android:textColor="#3F3D56"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tinp_valuation_type"
+        app:layout_constraintTop_toBottomOf="@id/tinp_valuation_type" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_search_sn"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/srchview"
+        app:layout_constraintEnd_toEndOf="@id/button_scan_sn"
+        app:layout_constraintStart_toStartOf="@id/tinp_valuation_type"
+        app:layout_constraintTop_toBottomOf="@id/lbl_sn_material">
+
+        <EditText
+            android:id="@+id/src_sn_material"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/srchview"
+            android:fontFamily="@font/montserrat_reguler"
+            android:hint="Search Serial Number"
+            android:paddingStart="10dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_src_sn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <CheckBox
+        android:id="@+id/cb_hapus_smua"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:text="Hapus Semua"
+        android:textColor="#23272F"
+        android:textSize="8dp"
+        android:theme="@style/CheckBox"
+        app:layout_constraintBottom_toBottomOf="@id/icon_trash"
+        app:layout_constraintEnd_toStartOf="@id/icon_trash"
+        app:layout_constraintTop_toBottomOf="@id/layout_search_sn" />
+
+    <ImageButton
+        android:id="@+id/icon_trash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_trashcan"
+        app:layout_constraintEnd_toEndOf="@id/layout_search_sn"
+        app:layout_constraintTop_toBottomOf="@id/layout_search_sn" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_regis_sn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="14dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/btn_daftar_sn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cb_hapus_smua"
+        tools:listitem="@layout/item_registrasi_sn_scan" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_daftar_sn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/br_btn"
+        android:fontFamily="@font/montserrat_reguler"
+        android:text="Daftarkan SN Material"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_regis_sn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.inspeksi_material.buat_inspeksi.BuatInspeksiActivity">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="@drawable/dashboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="29dp"
+        android:background="#00FFFFFF"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@id/textView3"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/header"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:fontFamily="@font/montserrat_reguler"
+        android:text="Buat Inspeksi"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/lbl_tanggal_inspeksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Tanggal Inspeksi"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edt_tanggal_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/srchview"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat_reguler"
+                android:hint=""
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_tanggal_inspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_tanggal_inspeksi" />
+
+            <TextView
+                android:id="@+id/lbl_no_referensi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="No. Referensi"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/edt_tanggal_inspeksi"
+                app:layout_constraintStart_toStartOf="@id/lbl_tanggal_inspeksi"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/edt_no_referensi"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/txt_input_layout"
+                android:fontFamily="@font/montserrat_reguler"
+                android:hint="Masukan No. Referensi"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_no_referensi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_no_referensi" />
+
+            <TextView
+                android:id="@+id/lbl_nama_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No./ Nama Material"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_tanggal_inspeksi"
+                app:layout_constraintTop_toBottomOf="@id/edt_no_referensi" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tinp_pilih_nama_material"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="25dp"
+                android:enabled="false"
+                app:hintAnimationEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@id/lbl_nama_material">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_nama_material"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/txt_input_layout"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="none"
+                    android:text="Pilih Nama Material" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lbl_lokasi_inspeksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lokasi Fisik"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@id/tinp_pilih_nama_material" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tinp_pilih_lokasi_inspeksi"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="25dp"
+                app:hintAnimationEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/lbl_nama_material"
+                app:layout_constraintTop_toBottomOf="@id/lbl_lokasi_inspeksi">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_lokasi_inspeksi"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/txt_input_layout"
+                    android:fontFamily="@font/montserrat"
+                    android:inputType="none"
+                    android:text="Pilih Lokasi Fisik" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lbl_satuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Satuan"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_lokasi_inspeksi"
+                app:layout_constraintTop_toBottomOf="@id/tinp_pilih_lokasi_inspeksi" />
+
+            <EditText
+                android:id="@+id/edt_satuan"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/txt_input_layout"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat_reguler"
+                android:hint="Masukan Satuan"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_tanggal_inspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_satuan" />
+
+            <TextView
+                android:id="@+id/lbl_qty_siap_inspeksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qty. Siap Inspeksi"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_satuan"
+                app:layout_constraintTop_toBottomOf="@id/edt_satuan" />
+
+            <EditText
+                android:id="@+id/edt_qty_siap_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/txt_input_layout"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat_reguler"
+                android:hint="Masukan Qty. Siap Inspeksi"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_tanggal_inspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_qty_siap_inspeksi" />
+
+            <TextView
+                android:id="@+id/lbl_qty_inspeksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qty. Inspeksi"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_qty_siap_inspeksi"
+                app:layout_constraintTop_toBottomOf="@id/edt_qty_siap_inspeksi" />
+
+            <EditText
+                android:id="@+id/edt_qty_inspeksi"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/txt_input_layout"
+                android:fontFamily="@font/montserrat_reguler"
+                android:inputType="number"
+                android:hint="Masukkan Qty. Inspeksi"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_tanggal_inspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_qty_inspeksi" />
+
+            <TextView
+                android:id="@+id/lbl_jumlah_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jumlah Unit"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_qty_inspeksi"
+                app:layout_constraintTop_toBottomOf="@id/edt_qty_inspeksi" />
+
+            <EditText
+                android:id="@+id/edt_jumlah_unit"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/txt_input_layout"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat_reguler"
+                android:hint="Masukkan Jumlah Unit"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_tanggal_inspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_jumlah_unit" />
+
+            <TextView
+                android:id="@+id/lbl_alasan_pengembalian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alasan Pengembalian"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:textColor="#3F3D56"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/lbl_qty_inspeksi"
+                app:layout_constraintTop_toBottomOf="@id/edt_jumlah_unit" />
+
+
+            <EditText
+                android:id="@+id/edt_alasan_pengembalian"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/txt_input_layout"
+                android:enabled="false"
+                android:fontFamily="@font/montserrat_reguler"
+                android:hint="Alasan Pengembalian"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbl_tanggal_inspeksi"
+                app:layout_constraintTop_toBottomOf="@+id/lbl_alasan_pengembalian" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_kirim"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/br_btn"
+                android:elevation="8dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/montserrat_reguler"
+                android:text="Selesai"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/edt_alasan_pengembalian"
+                app:layout_constraintStart_toStartOf="@+id/edt_alasan_pengembalian"
+                app:layout_constraintTop_toBottomOf="@+id/edt_alasan_pengembalian" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
